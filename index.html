@@ -1,0 +1,879 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameVault - Tu Tienda de Videojuegos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="side-tab" id="team-tab">
+      <span>Nosotros</span>
+    </div>
+
+    <div class="team-modal">
+      <div class="team-content">
+        <button class="close-team">&times;</button>
+        <div class="team-header">
+          <h2>Nuestro Equipo</h2>
+          <p>Un grupo apasionado de profesionales dedicados a revolucionar la industria del gaming</p>
+        </div>
+        <div class="team-grid">
+          <div class="team-member">
+            <div class="team-member-image">
+              <img src="./Nosotros/dani.jpg" alt="DANIEL SAIZ">
+            </div>
+            <h3>DANIEL SAIZ</h3>
+            <div class="role">Full Stack Leader</div>
+            <div class="description">
+              El  lider que todo lo ve, nuestro protector nuestro guia. Especialista en todo lo que tiene que ver con aspectos referentes a la Informatica.
+            </div>
+            <div class="team-member-social">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="team-member-image">
+              <img src="./Nosotros/cris.png" alt="CRISTINA QIAN">
+            </div>
+            <h3>CRISTINA QIAN</h3>
+            <div class="role">Backend Developer</div>
+            <div class="description">
+              Experto en optimización de bases de datos y seguridad. Responsable de la infraestructura y el rendimiento del sistema.
+            </div>
+            <div class="team-member-social">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="team-member-image">
+              <img src="./Nosotros/kike.jpg" alt="ENRIQUE JOSÉ">
+            </div>
+            <h3>ENRIQUE JOSÉ</h3>
+            <div class="role">Frontend Developer</div>
+            <div class="description">
+              Especialista en experiencia de usuario y diseño de interfaces. Creador de experiencias interactivas y atractivas.
+            </div>
+            <div class="team-member-social">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <div class="team-member-image">
+              <img src="./Nosotros/boluda.png" alt="SERGIO BOLUDA">
+            </div>
+            <h3>SERGIO BOLUDA</h3>
+            <div class="role">UX/UI Designer</div>
+            <div class="description">
+              Diseñador creativo con enfoque en la experiencia del usuario. Responsable de la identidad visual y la usabilidad de la plataforma.
+            </div>
+            <div class="team-member-social">
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add login modal -->
+    <div id="auth-modal" class="auth-modal">
+        <div class="auth-content">
+            <div class="auth-header">
+                <h2>Iniciar Sesión</h2>
+                <button class="close-auth">&times;</button>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="primary-btn">Iniciar Sesión</button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="register-form" class="auth-form" style="display: none;">
+                <div class="form-group">
+                    <label for="register-name">Nombre</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Contraseña</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirmar Contraseña</label>
+                    <input type="password" id="register-confirm-password" required>
+                </div>
+                <button type="submit" class="primary-btn">Registrarse</button>
+            </form>
+
+            <div class="auth-options">
+                <button id="switch-to-register" class="text-btn">¿No tienes cuenta? Regístrate</button>
+                <button id="switch-to-login" class="text-btn" style="display: none;">¿Ya tienes cuenta? Inicia sesión</button>
+                <button id="guest-login" class="secondary-btn">Continuar como Invitado</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update header navigation -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#hero" style="text-decoration: none; color: var(--text-color); display: flex; align-items: center; gap: 0.5rem;">
+                    <svg width="40" height="40" viewBox="0 0 40 40">
+                        <circle cx="20" cy="20" r="18" fill="#7B68EE"/>
+                        <text x="12" y="28" fill="white" font-size="20">GV</text>
+                    </svg>
+                    <span>GameVault</span>
+                </a>
+            </div>
+            <ul>
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#featured-games">Videojuegos</a></li>
+                <li><a href="#consolas">Consolas</a></li>
+                <li><a href="#assets">Game Assets</a></li>
+                <li><a href="#soundtracks">Soundtracks</a></li>
+                <li><a href="#eventos">Eventos</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li>
+                    <button id="auth-button" class="auth-btn">
+                        <i class="fas fa-user"></i>
+                        <span id="user-name">Iniciar Sesión</span>
+                    </button>
+                </li>
+                <li>
+                    <button id="cart-button" class="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count">0</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Add cart modal -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Carrito de Compras</h2>
+                <button class="close-cart">&times;</button>
+            </div>
+            <div id="cart-items" class="cart-items">
+                <!-- Cart items will be inserted here -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total-price">$0.00</span>
+                </div>
+                <button id="checkout-btn" class="primary-btn">Proceder al Pago</button>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section id="hero" class="hero">
+            <h1>Bienvenido al Futuro del Gaming</h1>
+            <p>Explora, juega y colecciona en GameVault 2025</p>
+            <div class="cta-buttons">
+                <button class="primary-btn" onclick="document.getElementById('featured-games').scrollIntoView({behavior: 'smooth'})">Explorar Juegos</button>
+                <button class="secondary-btn" onclick="document.getElementById('eventos').scrollIntoView({behavior: 'smooth'})">Ver Eventos</button>
+            </div>
+        </section>
+
+        <section id="featured-games">
+            <h2>Juegos Destacados</h2>
+            <div class="game-grid">
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?w=500');">
+                    </div>
+                    <h3>Cyber Revolution</h3>
+                    <p>$59.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('https://images.unsplash.com/photo-1518709414768-a88981a4515d?w=500');">
+                    </div>
+                    <h3>Space Odyssey</h3>
+                    <p>$49.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=500');">
+                    </div>
+                    <h3>Dragon Quest XII</h3>
+                    <p>$69.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500');">
+                    </div>
+                    <h3>Stellar Impact</h3>
+                    <p>$54.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500');">
+                    </div>
+                    <h3>Neon Warriors</h3>
+                    <p>$39.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=500');">
+                    </div>
+                    <h3>Echo's Legacy</h3>
+                    <p>$64.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=500');">
+                    </div>
+                    <h3>Mystic Legends</h3>
+                    <p>$45.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('https://images.unsplash.com/photo-1548484352-ea579e5233a8?w=500');">
+                    </div>
+                    <h3>Urban Warfare</h3>
+                    <p>$59.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="consolas" class="section-grid">
+            <h2>Consolas Gaming</h2>
+            <div class="game-grid">
+                <div class="console-card">
+                    <span class="stock-badge in-stock">En Stock</span>
+                    <div class="console-image" style="background-image: url('./ConsolasGaming/PlayStation_5_Pro.jpg');"></div>
+                    <div class="console-header">
+                        <h3>PlayStation 5 Pro</h3>
+                        <span class="manufacturer">Sony Interactive Entertainment</span>
+                    </div>
+                    <div class="console-price">
+                        <span class="original-price">$699.99</span>
+                        $599.99
+                    </div>
+                    <div class="console-details">
+                        <div class="console-detail">
+                            <i class="fas fa-microchip"></i>
+                            <span>AMD Zen 2 4.5GHz</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-memory"></i>
+                            <span>32GB GDDR6</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-hdd"></i>
+                            <span>1TB NVMe SSD</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-tv"></i>
+                            <span>4K 120fps / 8K</span>
+                        </div>
+                    </div>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+
+                <div class="console-card">
+                    <span class="stock-badge low-stock">Últimas Unidades</span>
+                    <div class="console-image" style="background-image: url('./ConsolasGaming/Xbox_Series_X.jpg');"></div>
+                    <div class="console-header">
+                        <h3>Xbox Series X</h3>
+                        <span class="manufacturer">Microsoft</span>
+                    </div>
+                    <div class="console-price">
+                        $499.99
+                    </div>
+                    <div class="console-details">
+                        <div class="console-detail">
+                            <i class="fas fa-microchip"></i>
+                            <span>Custom Zen 2 3.8GHz</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-memory"></i>
+                            <span>16GB GDDR6</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-hdd"></i>
+                            <span>1TB NVMe SSD</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-gamepad"></i>
+                            <span>Xbox Game Pass</span>
+                        </div>
+                    </div>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+
+                <div class="console-card">
+                    <span class="stock-badge in-stock">En Stock</span>
+                    <div class="console-image" style="background-image: url('./ConsolasGaming/Nintendo_Switch.jpg');"></div>
+                    <div class="console-header">
+                        <h3>Nintendo Switch</h3>
+                        <span class="manufacturer">Nintendo</span>
+                    </div>
+                    <div class="console-price">
+                        $349.99
+                    </div>
+                    <div class="console-details">
+                        <div class="console-detail">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Pantalla OLED 7"</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-memory"></i>
+                            <span>64GB Storage</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-battery-full"></i>
+                            <span>4.5-9 horas batería</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-wifi"></i>
+                            <span>Online Gaming</span>
+                        </div>
+                    </div>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+
+                <div class="console-card">
+                    <span class="stock-badge in-stock">En Stock</span>
+                    <div class="console-image" style="background-image: url('./ConsolasGaming/steamdek.jpg');"></div>
+                    <div class="console-header">
+                        <h3>Steam Deck</h3>
+                        <span class="manufacturer">Valve</span>
+                    </div>
+                    <div class="console-price">
+                        $399.99
+                    </div>
+                    <div class="console-details">
+                        <div class="console-detail">
+                            <i class="fas fa-microchip"></i>
+                            <span>AMD APU</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-memory"></i>
+                            <span>16GB RAM</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-hdd"></i>
+                            <span>512GB NVMe SSD</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fab fa-steam"></i>
+                            <span>Steam Library</span>
+                        </div>
+                    </div>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+
+                <div class="console-card">
+                    <span class="stock-badge low-stock">Últimas Unidades</span>
+                    <div class="console-image" style="background-image: url('./ConsolasGaming/rog-ally.webp');"></div>
+                    <div class="console-header">
+                        <h3>ROG Ally</h3>
+                        <span class="manufacturer">ASUS Republic of Gamers</span>
+                    </div>
+                    <div class="console-price">
+                        $699.99
+                    </div>
+                    <div class="console-details">
+                        <div class="console-detail">
+                            <i class="fas fa-microchip"></i>
+                            <span>AMD Ryzen Z1 Extreme</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-memory"></i>
+                            <span>16GB LPDDR5</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-hdd"></i>
+                            <span>512GB PCIe 4.0</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-windows"></i>
+                            <span>Windows 11</span>
+                        </div>
+                    </div>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+
+                <div class="console-card">
+                    <span class="stock-badge in-stock">En Stock</span>
+                    <div class="console-image" style="background-image: url('./ConsolasGaming/retroconsole.avif');"></div>
+                    <div class="console-header">
+                        <h3>Retro Console X</h3>
+                        <span class="manufacturer">GameVault Classic</span>
+                    </div>
+                    <div class="console-price">
+                        <span class="original-price">$249.99</span>
+                        $199.99
+                    </div>
+                    <div class="console-details">
+                        <div class="console-detail">
+                            <i class="fas fa-memory"></i>
+                            <span>128GB Storage</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-gamepad"></i>
+                            <span>50000+ Games</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-tv"></i>
+                            <span>HDMI Output</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-save"></i>
+                            <span>Save States</span>
+                        </div>
+                    </div>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+
+                <div class="console-card">
+                    <span class="stock-badge in-stock">En Stock</span>
+                    <div class="console-image" style="background-image: url('./ConsolasGaming/PlayStation_5_Slim.webp');"></div>
+                    <div class="console-header">
+                        <h3>PlayStation 5 Slim</h3>
+                        <span class="manufacturer">Sony Interactive Entertainment</span>
+                    </div>
+                    <div class="console-price">
+                        $499.99
+                    </div>
+                    <div class="console-details">
+                        <div class="console-detail">
+                            <i class="fas fa-microchip"></i>
+                            <span>AMD Zen 2</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-memory"></i>
+                            <span>16GB GDDR6</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-hdd"></i>
+                            <span>1TB SSD</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-tv"></i>
+                            <span>4K HDR</span>
+                        </div>
+                    </div>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+
+                <div class="console-card">
+                    <span class="stock-badge in-stock">En Stock</span>
+                    <div class="console-image" style="background-image: url('./ConsolasGaming/Xbox_Series_S.webp');"></div>
+                    <div class="console-header">
+                        <h3>Xbox Series S</h3>
+                        <span class="manufacturer">Microsoft</span>
+                    </div>
+                    <div class="console-price">
+                        $399.99
+                    </div>
+                    <div class="console-details">
+                        <div class="console-detail">
+                            <i class="fas fa-microchip"></i>
+                            <span>Custom Zen 2</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-memory"></i>
+                            <span>10GB GDDR6</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-hdd"></i>
+                            <span>512GB SSD</span>
+                        </div>
+                        <div class="console-detail">
+                            <i class="fas fa-gamepad"></i>
+                            <span>Xbox Game Pass</span>
+                        </div>
+                    </div>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="assets" class="section-grid">
+            <h2>Game Assets</h2>
+            <div class="game-grid">
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./GameAssets/1.jpg');"></div>
+                    <h3>3D Character Pack</h3>
+                    <p>$29.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./GameAssets/2.jpg');"></div>
+                    <h3>Fantasy Environments</h3>
+                    <p>$39.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./GameAssets/3.jpg');"></div>
+                    <h3>UI Kit Pro</h3>
+                    <p>$24.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./GameAssets/4.jpg');"></div>
+                    <h3>Weapon Collection</h3>
+                    <p>$19.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./GameAssets/5.jpg');"></div>
+                    <h3>Animation Pack</h3>
+                    <p>$34.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./GameAssets/6.jpg');"></div>
+                    <h3>VFX Bundle</h3>
+                    <p>$44.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./GameAssets/7.jpg');"></div>
+                    <h3>Sci-Fi Sound Effects</h3>
+                    <p>$29.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./GameAssets/8.jpg');"></div>
+                    <h3>Fantasy Music Pack</h3>
+                    <p>$39.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="soundtracks" class="section-grid">
+            <h2>Soundtracks</h2>
+            <div class="game-grid">
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./Soundtracks/a.jpg');"></div>
+                    <h3>Epic Orchestra</h3>
+                    <p>$14.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./Soundtracks/b.jpg');"></div>
+                    <h3>Cyber Synthwave</h3>
+                    <p>$19.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./Soundtracks/c.jpg');"></div>
+                    <h3>Fantasy RPG</h3>
+                    <p>$24.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./Soundtracks/d.jpg');"></div>
+                    <h3>Battle Themes</h3>
+                    <p>$16.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./Soundtracks/e.jpg');"></div>
+                    <h3>Ambient Collection</h3>
+                    <p>$12.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./Soundtracks/f.jpg');"></div>
+                    <h3>8-Bit Classics</h3>
+                    <p>$9.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./Soundtracks/g.jpg');"></div>
+                    <h3>Electronic Dance Music</h3>
+                    <p>$19.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./Soundtracks/h.jpg');"></div>
+                    <h3>Horror Sound Effects</h3>
+                    <p>$14.99</p>
+                    <button class="primary-btn">Añadir al Carrito</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="eventos" class="section-grid">
+            <h2>Próximos Eventos GameVault</h2>
+            <div class="game-grid">
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./EventosGames/1.jpg');"></div>
+                    <h3>GameCon 2025</h3>
+                    <p>$49.99</p>
+                    <div class="event-details">
+                        <span><i class="fas fa-calendar"></i> Julio 15-18, 2025</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Barcelona</span>
+                    </div>
+                    <button class="primary-btn">Reservar Entrada</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./EventosGames/2.jpg');"></div>
+                    <h3>GameVault Tournament</h3>
+                    <p>$29.99</p>
+                    <div class="event-details">
+                        <span><i class="fas fa-calendar"></i> Agosto 5-7, 2025</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Madrid</span>
+                    </div>
+                    <button class="primary-btn">Reservar Entrada</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./EventosGames/3.jpg');"></div>
+                    <h3>Developers Summit</h3>
+                    <p>$149.99</p>
+                    <div class="event-details">
+                        <span><i class="fas fa-calendar"></i> Sept 20-22, 2025</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Valencia</span>
+                    </div>
+                    <button class="primary-btn">Reservar Entrada</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./EventosGames/4.jpg');"></div>
+                    <h3>Indie Games Showcase</h3>
+                    <p>$19.99</p>
+                    <div class="event-details">
+                        <span><i class="fas fa-calendar"></i> Oct 10, 2025</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Sevilla</span>
+                    </div>
+                    <button class="primary-btn">Reservar Entrada</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./EventosGames/5.jpg');"></div>
+                    <h3>GameVault Awards</h3>
+                    <p>$79.99</p>
+                    <div class="event-details">
+                        <span><i class="fas fa-calendar"></i> Nov 30, 2025</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Barcelona</span>
+                    </div>
+                    <button class="primary-btn">Reservar Entrada</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./EventosGames/6.jpg');"></div>
+                    <h3>Winter Game Fest</h3>
+                    <p>$39.99</p>
+                    <div class="event-details">
+                        <span><i class="fas fa-calendar"></i> Dic 15-18, 2025</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Madrid</span>
+                    </div>
+                    <button class="primary-btn">Reservar Entrada</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./EventosGames/7.jpg');"></div>
+                    <h3>GameVault Hackathon</h3>
+                    <p>$Free</p>
+                    <div class="event-details">
+                        <span><i class="fas fa-calendar"></i> Jun 20-22, 2025</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Online</span>
+                    </div>
+                    <button class="primary-btn">Registrarse</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-image" style="background-image: url('./EventosGames/8.jpg');"></div>
+                    <h3>VR Experience Day</h3>
+                    <p>$24.99</p>
+                    <div class="event-details">
+                        <span><i class="fas fa-calendar"></i> Mar 15, 2025</span>
+                        <span><i class="fas fa-map-marker-alt"></i> Barcelona</span>
+                    </div>
+                    <button class="primary-btn">Reservar Entrada</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section-grid">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-container">
+                <!-- First Column -->
+                <div class="faq-item">
+                    <h3>¿Cómo puedo comprar juegos en GameVault?</h3>
+                    <div class="faq-answer">
+                        <p>Simplemente selecciona el juego que deseas, añádelo al carrito y sigue el proceso de pago seguro.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3>¿Cuáles son los métodos de pago aceptados?</h3>
+                    <div class="faq-answer">
+                        <p>Aceptamos tarjetas de crédito/débito, PayPal, y transferencias bancarias.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3>¿Los juegos son activables globalmente?</h3>
+                    <div class="faq-answer">
+                        <p>La mayoría de nuestros juegos son de activación global, pero siempre verificamos las restricciones regionales en la descripción del producto.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3>¿Cuánto tiempo tarda la entrega digital?</h3>
+                    <div class="faq-answer">
+                        <p>Las claves de juego se entregan instantáneamente después de la confirmación del pago.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3>¿Tienen política de reembolso?</h3>
+                    <div class="faq-answer">
+                        <p>Sí, ofrecemos reembolso completo dentro de los primeros 14 días si el código no ha sido activado.</p>
+                    </div>
+                </div>
+                <!-- Second Column -->
+                <div class="faq-item">
+                    <h3>¿Cómo recibo mi producto digital?</h3>
+                    <div class="faq-answer">
+                        <p>Recibirás un email con el código de activación y las instrucciones detalladas.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3>¿Ofrecen soporte técnico?</h3>
+                    <div class="faq-answer">
+                        <p>Sí, nuestro equipo de soporte está disponible 24/7 para ayudarte con cualquier problema.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3>¿Tienen programa de lealtad?</h3>
+                    <div class="faq-answer">
+                        <p>Sí, nuestro programa VaultRewards te permite ganar puntos en cada compra para descuentos futuros.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3>¿Puedo regalar juegos a otros usuarios?</h3>
+                    <div class="faq-answer">
+                        <p>Sí, tenemos una opción de regalo que te permite enviar juegos directamente a otros usuarios.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <h3>¿Cómo reporto un problema con mi compra?</h3>
+                    <div class="faq-answer">
+                        <p>Puedes contactar a nuestro servicio al cliente a través del formulario de contacto o por chat en vivo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="section-grid">
+            <h2>Contacto</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3> 
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:gamevault.info.vault@gmail.com" style="color: white; text-decoration: none;">gamevault.info.vault@gmail.com</a></p>
+                   
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-clock"></i> 24/7 Soporte</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                    <div class="contact-logo">
+                        <svg width="80" height="80" viewBox="0 0 40 40">
+                            <circle cx="20" cy="20" r="18" fill="#7B68EE"/>
+                            <text x="12" y="28" fill="white" font-size="20">GV</text>
+                        </svg>
+                        <h3 class="company-name">GameVault</h3>
+                    </div>
+                </div>
+                <form class="contact-form" action="contact.php" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required minlength="2" maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Asunto</label>
+                        <input type="text" id="subject" name="subject" required minlength="3" maxlength="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" required minlength="10" maxlength="1000"></textarea>
+                    </div>
+                    <button type="submit" class="primary-btn">Enviar Mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Sobre GameVault</h4>
+                <p>Tu destino definitivo para videojuegos digitales</p>
+            </div>
+            <div class="footer-section">
+                <h4>Síguenos</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GameVault. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const teamTab = document.getElementById('team-tab');
+          const teamModal = document.querySelector('.team-modal');
+          const closeTeam = document.querySelector('.close-team');
+
+          teamTab.addEventListener('click', () => {
+            teamModal.classList.add('show');
+          });
+
+          closeTeam.addEventListener('click', () => {
+            teamModal.classList.remove('show');
+          });
+
+          teamModal.addEventListener('click', (e) => {
+            if (e.target === teamModal) {
+              teamModal.classList.remove('show');
+            }
+          });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
